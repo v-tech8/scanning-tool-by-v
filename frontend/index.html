@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Network Security Assessment with ELK</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background-animation"></div>
+    <div class="glass-container">
+        <header>
+            <h1>Security Assessment Platform</h1>
+            <p>Automated network reconnaissance and vulnerability detection</p>
+        </header>
+
+        <section class="scan-section">
+            <div class="input-group">
+                <input type="text" id="targetInput" placeholder="Enter IP or URL (e.g., scanme.nmap.org)" />
+                <button id="scanBtn" onclick="startScan()">Start Scan</button>
+            </div>
+            <div id="loader" class="loader hidden">
+                <div class="spinner"></div>
+                <p>Scanning in progress... Please wait.</p>
+            </div>
+        </section>
+
+        <section id="resultsSection" class="results-section hidden">
+            <h2>Scan Report <span id="scanTargetDisplay"></span></h2>
+            
+            <div class="action-buttons">
+                <a id="btnDownloadJson" class="btn secondary" href="#" target="_blank">Download JSON</a>
+                <a id="btnDownloadPdf" class="btn secondary" href="#" target="_blank">View PDF Report</a>
+            </div>
+
+            <div class="dashboard-grid">
+                <div class="card critical-card">
+                    <h3>Critical Vulnerabilities</h3>
+                    <div class="count" id="countCritical">0</div>
+                    <ul id="listCritical" class="finding-list"></ul>
+                </div>
+
+                <div class="card potential-card">
+                    <h3>Potential Threats</h3>
+                    <div class="count" id="countPotential">0</div>
+                    <ul id="listPotential" class="finding-list"></ul>
+                </div>
+
+                <div class="card info-card">
+                    <h3>Informational Findings</h3>
+                    <div class="count" id="countInformational">0</div>
+                    <ul id="listInformational" class="finding-list"></ul>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
